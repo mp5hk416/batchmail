@@ -1,0 +1,64 @@
+server:
+  port: 9955
+spring :
+  datasource:
+    url: jdbc:mysql://192.168.0.100:33060/TSMC5211?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: ArmiTech@0610
+    driver-class-name: com.mysql.jdbc.Driver
+  resources:
+    static-locations: classpath:/static/
+  messages:
+    basename: i18n/messages
+    encoding: utf-8
+    cache-duration: 3600
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernates:
+        order_updates: true
+        batch_versioned_data: true
+
+  mail:
+    host: smtp.gmail.com
+    username: mp5hk416@gmail.com
+    password: ynwelqgxqdlkfwkl
+    properties:
+      mail:
+        smtp:
+          auth: true
+          port: 465
+        ssl:
+          enable: true
+        transport:
+          protocol: smtp
+        socketFactory:
+          class: javax.net.ssl.SSLSocketFactory
+          port: 465
+
+    protocol: smtps
+
+knife4j:
+  enable: true
+
+
+
+logging:
+  level:
+    com:
+      batch:
+        spring:
+          batch: trace
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+
