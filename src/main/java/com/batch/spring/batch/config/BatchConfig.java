@@ -36,9 +36,6 @@ public class BatchConfig {
     @Autowired
     public StepBuilderFactory stepBuilderFactory;
 
-//    @Autowired
-//    JobLauncher jobLauncher;
-
     @Autowired
     DataSource dataSource;
 
@@ -85,33 +82,4 @@ public class BatchConfig {
                 .rowMapper(new MailInfoEntityMapper())
                 .build();
     }
-
-//    @Bean
-//    public Job importUserJob(JobCompletionNotificationListener listener, Step step1, Step step2) {
-//        return jobBuilderFactory.get("importUserJob")
-//                //.incrementer(new RunIdIncrementer())
-//                .listener(listener)
-//                .listener(new JobExecutionListener() {
-//                    @Override
-//                    public void beforeJob(JobExecution jobExecution) {
-//                        System.out.println("!!!!!!!!!!!!!SECOND_LISTENER_BEFORE!!!!!!!!!!!!!!!!");
-//                    }
-//
-//                    @Override
-//                    public void afterJob(JobExecution jobExecution) {
-//                        System.out.println("!!!!!!!!!!!!!SECOND_LISTENER_AFTER!!!!!!!!!!!!!!!!");
-//
-//                    }
-//                })
-//                .flow(step1)
-//                .next(step2)
-//                .end()
-//                .build();
-//    }
-
-
-
-
-
-
 }

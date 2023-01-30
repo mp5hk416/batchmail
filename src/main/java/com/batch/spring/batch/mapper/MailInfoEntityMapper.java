@@ -18,8 +18,6 @@ public class MailInfoEntityMapper implements RowMapper<MailIInfoEntity> {
     @Override
     public MailIInfoEntity mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-//        ZoneId zoneId = ZoneId.systemDefault();
-
         return MailIInfoEntity.builder()
                 .id(rs.getLong("id"))
                 .senderAddress(rs.getString("sender_address"))

@@ -19,13 +19,9 @@ spring :
       enabled: false
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
-    hibernate.ddl-auto: update
-    generate-ddl: true
-    show-sql: true
-    properties:
-      hibernates:
-        order_updates: true
-        batch_versioned_data: true
+    hibernate.ddl-auto: none
+    generate-ddl: false
+    show-sql: false
 
   mail:
     host: smtp.gmail.com

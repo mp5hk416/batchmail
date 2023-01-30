@@ -27,13 +27,6 @@ public class MailProcessor implements ItemProcessor<MailIInfoEntity, MailIInfoEn
     public MailIInfoEntity process(MailIInfoEntity mailIInfoEntity){
         log.info("needProcessor需要處裡的資料:{}", mailIInfoEntity);
 
-//        try {
-//            springMailService.sendSimpleMessage(mailInfoDTO.getSenderAddress(),mailInfoDTO.getRecipientAddress(),mailInfoDTO.getSubject(),mailInfoDTO.getContent());
-//            mailInfoDTO.setEmailSent(1);
-//        } catch (SendFailedException e) {
-//            e.printStackTrace();
-//        }
-
         try {
             long start = System.currentTimeMillis();
             log.info("開始時間:{}",start);

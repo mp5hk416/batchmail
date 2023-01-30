@@ -39,8 +39,8 @@ public class QuartzConfig {
     @Bean
     public Trigger mailJobTrigger(){
         System.out.println("方法定時器開始運作");
-        //0秒0分後每3分處發一次
-        CronScheduleBuilder cronScheduleBuilder = CronScheduleBuilder.cronSchedule("0 0/6 * * * ?");
+        //0秒0分後每5分處發一次
+        CronScheduleBuilder cronScheduleBuilder = CronScheduleBuilder.cronSchedule("0 0/5 * * * ?");
         return TriggerBuilder.newTrigger()
                 .forJob(mailJobDetail())
                 .withIdentity("mailJobTrigger")

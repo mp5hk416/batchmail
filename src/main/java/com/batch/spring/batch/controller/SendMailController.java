@@ -1,19 +1,7 @@
 package com.batch.spring.batch.controller;
 
-import com.batch.spring.batch.Pojo.MailIInfoEntity;
-import com.batch.spring.batch.Pojo.MailInfoDTO;
-import com.batch.spring.batch.service.SingleMailSending;
-import com.batch.spring.batch.service.impl.SpringMailService;
-import com.batch.spring.batch.utils.JsonResult;
-import com.batch.spring.batch.utils.ReplyMessage;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.batch.core.*;
+import org.springframework.batch.core.Job;
 import org.springframework.batch.core.launch.JobLauncher;
-import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
-import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
-import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,9 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.mail.MessagingException;
-import javax.mail.SendFailedException;
-import java.util.Random;
+import com.batch.spring.batch.Pojo.MailInfoDTO;
+import com.batch.spring.batch.service.SingleMailSending;
+import com.batch.spring.batch.service.impl.SpringMailService;
+import com.batch.spring.batch.utils.JsonResult;
+import com.batch.spring.batch.utils.ReplyMessage;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 俊翔，學習加油，今天是 2022/11/10 下午 05:23
@@ -59,9 +53,4 @@ public class SendMailController {
 
         return JsonResult.ok(new ReplyMessage("寄送成功"));
     }
-
-
-
-
-
 }
