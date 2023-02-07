@@ -74,7 +74,7 @@ public class BatchConfig {
 
     @Bean
     public ItemReader<MailIInfoEntity> mailReader() {
-        String sql = "SELECT * FROM mail_sys WHERE state = 1 AND email_sent = 0";
+        String sql = "SELECT * FROM mail_server WHERE status = 0";
         return new JdbcCursorItemReaderBuilder<MailIInfoEntity>()
                 .name("mailReader")
                 .sql(sql)

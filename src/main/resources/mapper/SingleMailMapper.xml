@@ -5,20 +5,21 @@
 
 <mapper namespace="com.batch.spring.batch.mapper.SingleMailMapper">
 
-    <sql id="mail_sys_sql">
-        id, sender_address, recipient_address, subject, content, state, email_sent, sending_date
+    <sql id="mail_server_sql">
+        index, nt_account, exc_case_id, status, sendmailtime, email_address
     </sql>
     
     <select id="getMailList" resultMap="listMap">
-        SELECT <include refid="mail_sys_sql"/> FROM mail_sys WHERE state = 1
+        SELECT <include refid="mail_server_sql"/> FROM mail_server WHERE status = 0
     </select>
     
     <resultMap id="listMap" type="com.batch.spring.batch.Pojo.MailIInfoEntity">
-        <id property="id" column="id"/>
-        <result column="sender_address" property="senderAddress"/>
-        <result column="recipient_address" property="recipientAddress"/>
-        <result column="email_sent" property="emailSent"/>
-        <result column="sending_date" property="sendingDate"/>
+        <id property="index" column="index"/>
+        <result column="nt_account" property="ntAccount"/>
+        <result column="exc_case_id" property="excCaseId"/>
+        <result column="status" property="status"/>
+        <result column="sendmailtime" property="sendMailTime"/>
+        <result column="email_address" property="emailAddress"/>
     </resultMap>
 
 </mapper>

@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public interface MailRepository extends JpaRepository<MailIInfoEntity, Long> {
 
-    List<MailIInfoEntity> findMailInfoDTOByState(Short state);
+    List<MailIInfoEntity> findMailInfoDTOByStatus(Integer status);
 
-    Long countByStateAndEmailSent(Short state, Integer emailSent);
+    Long countByStatus(Integer status);
 
 
 

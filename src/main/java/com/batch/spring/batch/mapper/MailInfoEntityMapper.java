@@ -1,11 +1,12 @@
 package com.batch.spring.batch.mapper;
 
-import com.batch.spring.batch.Pojo.MailIInfoEntity;
-import org.springframework.jdbc.core.RowMapper;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.ZoneId;
+import java.time.Instant;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import com.batch.spring.batch.Pojo.MailIInfoEntity;
 
 
 /**
@@ -19,15 +20,12 @@ public class MailInfoEntityMapper implements RowMapper<MailIInfoEntity> {
     public MailIInfoEntity mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         return MailIInfoEntity.builder()
-                .id(rs.getLong("id"))
-                .senderAddress(rs.getString("sender_address"))
-                .recipientAddress(rs.getString("recipient_address"))
-                .subject(rs.getString("subject"))
-                .content(rs.getString("content"))
-                .state(rs.getShort("state"))
-                .emailSent(rs.getInt("email_sent"))
-                //Date轉LocalDateTime
-                .sendingDate(rs.getTimestamp("sending_date"))
+        		.index(rs.getInt("index"))
+                .emailAddress(rs.getString("email_address")) 
+                .ntAccount(rs.getString("nt_account"))
+                .excCaseId(rs.getString("exc_case_id"))
+                .status(rs.getInt("status"))
+                .sendMailTime(Instant.now())
                 .build();
     }
 }

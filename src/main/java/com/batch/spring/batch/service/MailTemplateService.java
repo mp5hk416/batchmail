@@ -2,7 +2,7 @@ package com.batch.spring.batch.service;
 
 import com.batch.spring.batch.Pojo.MailTemplateDTO;
 
-public interface SingleMailSending {
+public interface MailTemplateService {
 
-    void SingleMailSend(MailTemplateDTO mailTemplateDTO);
+	MailTemplateDTO findById(Long id);
 }

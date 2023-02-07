@@ -42,11 +42,11 @@ public class TimerJob implements Job{
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
 
-        Short s = 1;
+    	Integer s = 0;
 
         System.out.println("啟用定時工作");
 
-        Long total = mailRepository.countByStateAndEmailSent(s,0);
+        Long total = mailRepository.countByStatus(s);
         if (total<0){
             log.info("無相關信件需寄出");
         }
